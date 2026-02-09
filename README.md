@@ -50,9 +50,9 @@ The repository contains three Arduino sketches:
 ### Notebooks
 The repository contains four notebooks in the `Notebooks` directory:
 
-1. `Dish Washer Audio Data combined exploration.ipynb`: Notebook for exploring and visualizating the collected audio data.
-1. `Dish Washer Audio Data combined.ipynb`: Notebook for model development and export.
-1. `Dish Washer Audio Data MCU Pipeline evaluation.ipynb`: Notebook used to evaluate the predictions made by the
+1. `Dish Washer Audio Data Combined Exploration.ipynb`: Notebook for exploring and visualizating the collected audio data.
+1. `Dish Washer Audio Data Combined Model Development.ipynb`: Notebook for model development and export.
+1. `Dish Washer Audio Data MCU Pipeline Evaluation.ipynb`: Notebook used to evaluate the predictions made by the
    `AudioClassificationValidation` firmware to confirm that the on-device prediction pipeline implementation matched
    the Python prototype.
 1. `Dish Washer Audio Data Complete Evaluation.ipynb`: Notebook for evaluating the predictions on the audio data
