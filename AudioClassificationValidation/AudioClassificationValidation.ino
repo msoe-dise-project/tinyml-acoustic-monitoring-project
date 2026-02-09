@@ -1,12 +1,15 @@
+/*
+  Audio Classification Validation
+  
+  Implements a pipeline using DSP and ML techniques to predict whether a dish washer
+  is running from 1 second recordings of audio.  This implementation is designed to
+  batch process prerecorded audio found in an 'audiodata.bin' file stored on the SD card
+  and write the results out to a text file named 'predict.csv'.
+*/
+
 // SD card
 #include <SPI.h>
 #include <SD.h>
-
-// supposedly much faster because it uses the Quake 3 sqrt approximation
-// #define FFT_SQRT_APPROXIMATION
-// #define sqrt_internal sqrtf
-// but empirical testing on the Nano RP2040 Connect didn't show any benefits
-// maybe because of software floating point?
 
 #include <arduinoFFT.h>
 

@@ -1,5 +1,9 @@
 /*
-  Read Audio
+  Audio Logger
+  
+  Records 3 seconds of audio every minute from the onboard microphone and writes
+  the samples to a binary file on the SD card.  This is used to collect data for training
+  a ML model.
 
   Useful reference:
   https://docs.arduino.cc/tutorials/nano-rp2040-connect/rp2040-microphone-basics/

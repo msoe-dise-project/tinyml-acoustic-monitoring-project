@@ -1,5 +1,8 @@
 /*
-  Read Audio
+  Audio Classification Logger
+  
+  Samples 1 second of audio every minute, predictions whether the dish washer,
+  and writes out the prediction and standard deviation of the audio signal amplitudes.
 
   Useful reference:
   https://docs.arduino.cc/tutorials/nano-rp2040-connect/rp2040-microphone-basics/
@@ -22,9 +25,6 @@ constexpr uint32_t SEC_PER_MIN = 60;
 
 // used to treat realSamples as a circular buffer
 uint32_t sampleIdx = 0;
-
-// used to save LED state from last prediction
-int PRED_LED_STATE = LOW;
 
 unsigned long lastSamplingTime = 0;
 unsigned long lastWriteTime = 0;
@@ -55,7 +55,6 @@ void setup() {
     Serial.println(F("PDM initialize!"));
   }
 
-  /*
   if (!SD.begin(SD_PIN)) {
     if(DEBUG) {
       Serial.println(F("Could not find SD device"));
@@ -66,9 +65,8 @@ void setup() {
   if(DEBUG) {
     Serial.println(F("SD device initialized"));
   }
-  */
 
-  // createFileIfNeeded();
+  createFileIfNeeded();
 
   // setup complete
   digitalWrite(LED_BUILTIN, LOW);
@@ -151,14 +149,14 @@ void loop() {
       calculateSampleSummaryStats(stats, N_WIN_SAMPLES, realSamples);
       bool dishwasherActivityPrediction = runPredictionPipeline();
 
-      /*
+      
       dataFile.print(lastSamplingTime);
       dataFile.print(",");
       dataFile.print(stats.stddev, 4);
       dataFile.print(",");
       dataFile.println(dishwasherActivityPrediction);
       dataFile.flush();
-      */
+      
 
       if(DEBUG) {
         Serial.print(lastSamplingTime);
@@ -167,14 +165,6 @@ void loop() {
         Serial.print(" ");
         Serial.println(dishwasherActivityPrediction);
       }
-
-      if(dishwasherActivityPrediction) {
-        PRED_LED_STATE = HIGH;
-      } else {
-        PRED_LED_STATE = LOW;
-      }
     }
   }
-
-  digitalWrite(LED_BUILTIN, PRED_LED_STATE);
 }
