@@ -1,6 +1,7 @@
 # Illustrating TinyML on Microcontrollers with an Acoustic Monitoring Project
 
 [![Creative Commons Attribution-ShareAlike 4.0 International license badge](https://mirrors.creativecommons.org/presskit/buttons/80x15/png/by-sa.png)](https://creativecommons.org/licenses/by-sa/4.0/)
+[![Zenodo DOI badge](https://zenodo.org/badge/DOI/10.5281/zenodo.18571651.svg)](https://doi.org/10.5281/zenodo.18571650)
 
 This repository contains the code and model artifacts for the paper "Illustrating
 TinyML on Microcontrollers with an Acoustic Monitoring Project."  The paper describes 
